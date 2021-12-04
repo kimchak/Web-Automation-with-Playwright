@@ -15,7 +15,7 @@ test.describe('Happn tech assignment test', async () => {
 
   })
 
-  test.only("Access contact page", async ({ page, context }) => {
+  test("Access contact page", async ({ page, context }) => {
     const homePage = new HomePage(page);
     const contactPage = new ContactPage(page);
     await homePage.navigateToContact();
@@ -28,16 +28,17 @@ test.describe('Happn tech assignment test', async () => {
   test('Access About page', async ({page}) => {
     const homePage = new HomePage(page);
     const aboutPage = new AboutPage(page);
+    homePage.navigateToAbout();
     await aboutPage.numbersVisible();
     await aboutPage.picturesVisible();
 
   })
 
-  test('Access Cookies page', async ({page}) => {
+  test.only('Access Cookies page', async ({page}) => {
     const homePage = new HomePage(page);
     const cookiesPage = new CookiesPage(page);
     await homePage.navigateToCookies();
-    await cookiesPage.navigationMenuTitleIsCorrect();
+    await cookiesPage.validateNavigationMenu();
     await cookiesPage.emailsAreCorrect();
   })
 

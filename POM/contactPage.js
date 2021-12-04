@@ -22,16 +22,4 @@ exports.ContactPage = class ContactPage {
             return new FaqPage(newTab)
     }
 
-    async navigateToSignInInfo() {
-        await this.page.click(this.signupInfoLink);
-
-    }
-
-    async fillReport() {
-        await this.page.fill('input[name=name]', "test");
-        await this.page.fill('input[name=mail]', "test@test.fr");
-        await this.page.selectOption('select[name="reason"]', "other");
-        await this.page.fill('textarea[name="message"]', "test");
-    }
-
 }
