@@ -3,8 +3,8 @@
 
 const config = {
     use: {
-    baseURL : 'https://www.happn.com/en',
       headless: true,
+    baseURL : 'https://www.happn.com/en/',
       ignoreHTTPSErrors: true,
     //   video: 'on-first-retry',
     },
