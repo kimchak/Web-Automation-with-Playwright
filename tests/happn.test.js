@@ -34,7 +34,7 @@ test.describe('Happn tech assignment test', async () => {
 
   })
 
-  test.only('Access Cookies page', async ({page}) => {
+  test('Access Cookies page', async ({page}) => {
     const homePage = new HomePage(page);
     const cookiesPage = new CookiesPage(page);
     await homePage.navigateToCookies();
@@ -43,5 +43,6 @@ test.describe('Happn tech assignment test', async () => {
   })
 
 })
+
 
 

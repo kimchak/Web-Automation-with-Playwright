@@ -3,9 +3,9 @@ const { expect } = require('@playwright/test');
 
 exports.AboutPage = class AboutPage {
 
-  /**
-   * @param {import('@playwright/test').Page} page
-   */
+    /**
+     * @param {import('@playwright/test').Page} page
+     */
     constructor(page) {
         this.page = page;
         this.numbersContainer = page.locator('#number-title')
@@ -19,18 +19,18 @@ exports.AboutPage = class AboutPage {
     async numbersVisible() {
         await this.numbersContainer.hover();
         await expect(this.numbers).toHaveCount(3);
-       await expect(this.numbers.nth(0)).toHaveText("100M");
-       await expect(this.numbers.nth(1)).toHaveText("4.9M");
-       await expect(this.numbers.nth(2)).toHaveText("1.5M");
-
-    //    await expect(this.numbers).toBeVisible();
-       
+        await expect(this.numbers.nth(0)).toHaveText("100M");
+        await expect(this.numbers.nth(1)).toHaveText("4.9M");
+        await expect(this.numbers.nth(2)).toHaveText("1.5M");
     }
 
     async picturesVisible() {
         // await expect(this.pictures).toBeVisible();
         await this.picturesContainer.hover();
         await expect(this.pictures).toHaveCount(83);
+        for (let i=0; i < await this.pictures.count(); i++){
+            await expect(this.pictures.nth(i)).toHaveCSS("background-image", /\.jpe?g|\.png/)
+        }
     }
 
 }
