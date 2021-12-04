@@ -6,12 +6,17 @@ exports.HomePage = class HomePage {
 
   constructor(page) {
     this.page = page;
+    this.cookieButton = page.locator('button[aria-label="Accept cookies"]');
     this.aboutLink = page.locator('li.header__nav__item > a:text("About")');
     this.contactLink = page.locator('a.footer__main__link:text("Contact")');
   }
 
   async navigate() {
     await this.page.goto("/");
+  }
+
+  async closeCookiePopup(){
+    await this.cookieButton.click()
   }
 
   async navigateToAbout() {
