@@ -30,6 +30,14 @@ exports.FaqPage = class FaqPage {
         await this.messageInput.fill("test");
     }
 
+    async vaidateReport(){
+        await expect(this.nameInput).toHaveValue("test");
+        await expect(this.mailInput).toHaveValue("test@test.fr");
+        await expect(this.optionBox).toHaveValue("other");
+        await expect(this.messageInput).toHaveValue("test");
+
+    }
+
     // async submitReport() {
     // const captchaFrame = await page
     //   .$("iframe[title=reCAPTCHA]")

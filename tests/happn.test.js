@@ -22,6 +22,7 @@ test.describe('Happn tech assignment test', async () => {
     const faqPage = await contactPage.navigateToFirstStep();
     await faqPage.navigateToSignInInfo();
     await faqPage.fillReport();
+    await faqPage.vaidateReport();
   });
 
   test('Access About page', async ({page}) => {
