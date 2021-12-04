@@ -1,6 +1,7 @@
 //@ts-check
 const { test, expect } = require("@playwright/test");
 const { AboutPage } = require("../POM/aboutPage");
+const { CookiesPage } = require("../POM/cookiesPage");
 const { HomePage } = require('../POM/homePage')
 
 test.describe('Happn tech assignment test', async () => {
@@ -29,6 +30,14 @@ test.describe('Happn tech assignment test', async () => {
     await aboutPage.numbersVisible();
     await aboutPage.picturesVisible();
 
+  })
+
+  test('Access Cookies page', async ({page}) => {
+    const homePage = new HomePage(page);
+    const cookiesPage = new CookiesPage(page);
+    await homePage.navigateToCookies();
+    await cookiesPage.navigationMenuTitleIsCorrect();
+    await cookiesPage.emailsAreCorrect();
   })
 
 })
