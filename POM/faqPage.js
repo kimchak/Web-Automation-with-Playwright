@@ -9,6 +9,7 @@ exports.FaqPage = class FaqPage {
     constructor(page) {
         this.page = page;
         this.signupInfoLink = 'text = How can I sign up and log in';
+        this.signupInfoHeader = page.locator('h2.faq__title');
         this.nameInput = this.page.locator('input[name=name]');
         this.mailInput = this.page.locator('input[name=mail]');
         this.optionBox = this.page.locator('select[name="reason"]');
@@ -21,6 +22,10 @@ exports.FaqPage = class FaqPage {
     async navigateToSignInInfo() {
         await this.page.click(this.signupInfoLink);
 
+    }
+
+    async validateSignInInfo() {
+        await expect(this.signupInfoHeader).toHaveText('How can I sign up and log in?');
     }
 
     async fillReport() {

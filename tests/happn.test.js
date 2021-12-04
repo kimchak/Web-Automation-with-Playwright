@@ -19,8 +19,10 @@ test.describe('Happn tech assignment test', async () => {
     const homePage = new HomePage(page);
     const contactPage = new ContactPage(page);
     await homePage.navigateToContact();
-    const faqPage = await contactPage.navigateToFirstStep();
+    const faqPage = 
+    await contactPage.navigateToFirstStep();
     await faqPage.navigateToSignInInfo();
+    await faqPage.validateSignInInfo();
     await faqPage.fillReport();
     await faqPage.vaidateReport();
   });
@@ -28,7 +30,7 @@ test.describe('Happn tech assignment test', async () => {
   test('Access About page', async ({page}) => {
     const homePage = new HomePage(page);
     const aboutPage = new AboutPage(page);
-    homePage.navigateToAbout();
+    await homePage.navigateToAbout();
     await aboutPage.numbersVisible();
     await aboutPage.picturesVisible();
 
