@@ -22,7 +22,6 @@ exports.CookiesPage = class CookiesPage {
     }
 
     async emailsAreCorrect() {
-        console.log(await this.emails);
         for (let i = 0; i < await this.emails.count(); i++) {
             await expect(this.emails.nth(i)).toContainText('@happn.fr');
         }
